@@ -207,8 +207,12 @@ func posedge():
 	
 	pointed_neuron = neurons[pc.y][pc.x]
 	pointed_neuron.set_focus(true)
+	
 	pointed_state = states[pc.y][pc.x]
 	pointed_state["ports"][recipient] = result
+	
+	focused_state = pointed_state
+	focused_neuron = pointed_neuron
 	yielded.emit(result)
 
 func add(op1: int ,op2: int) -> int:
