@@ -1,0 +1,148 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw5w0v16ify6c"]
+
+[ext_resource type="PackedScene" uid="uid://c5gdmumu55s2q" path="res://editor/editor.tscn" id="1_tmwqe"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_w5cd1"]
+[ext_resource type="PackedScene" uid="uid://okpwh5rv10fk" path="res://brain/brain.tscn" id="2_8hg1i"]
+[ext_resource type="StyleBox" uid="uid://1f15bx8v3uc1" path="res://resources/background.tres" id="2_on1ni"]
+[ext_resource type="FontFile" uid="uid://bei5vw5mhmwp7" path="res://resources/VT323-Regular.ttf" id="3_cwb1k"]
+[ext_resource type="PackedScene" uid="uid://t3fswwlxpik7" path="res://resources/border.tscn" id="3_q05xa"]
+[ext_resource type="Script" path="res://game/btn.gd" id="6_t67pp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sj83o"]
+
+[sub_resource type="Animation" id="Animation_ilbq3"]
+resource_name = "show_objective"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("interface/controls/objective:visible_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c52t6"]
+_data = {
+"show_objective": SubResource("Animation_ilbq3")
+}
+
+[node name="game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5cd1")
+
+[node name="brackground" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_on1ni")
+
+[node name="interface" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_right = 28.5
+offset_bottom = 83.0
+grow_horizontal = 2
+
+[node name="controls" type="VBoxContainer" parent="interface"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="objective" type="Label" parent="interface/controls"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_cwb1k")
+theme_override_font_sizes/font_size = 20
+text = "test"
+vertical_alignment = 1
+justification_flags = 131
+uppercase = true
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="editor" parent="interface/controls" instance=ExtResource("1_tmwqe")]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../border/btn")
+focus_previous = NodePath("../brain")
+
+[node name="border" parent="interface/controls" instance=ExtResource("3_q05xa")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="btn" type="Button" parent="interface/controls/border"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../../editor")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../../brain")
+focus_previous = NodePath("../../editor")
+focus_mode = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.404511, 0.404511, 0.404511, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.404511, 0.404511, 0.404511, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_cwb1k")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sj83o")
+text = "run"
+flat = true
+script = ExtResource("6_t67pp")
+
+[node name="brain" parent="interface/controls" instance=ExtResource("2_8hg1i")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../editor")
+focus_previous = NodePath("../border/btn")
+
+[node name="display" type="Label" parent="interface/controls"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cwb1k")
+theme_override_font_sizes/font_size = 20
+
+[node name="timer" type="Timer" parent="."]
+
+[node name="animations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c52t6")
+}
+
+[connection signal="acceptance" from="interface/controls/editor" to="interface/controls/brain" method="_review"]
+[connection signal="send" from="interface/controls/editor" to="interface/controls/brain" method="download"]
+[connection signal="focus_entered" from="interface/controls/border/btn" to="interface/controls/border" method="border_on"]
+[connection signal="focus_exited" from="interface/controls/border/btn" to="interface/controls/border" method="border_off"]
+[connection signal="pressed" from="interface/controls/border/btn" to="." method="_toggle_simulation"]
+[connection signal="highlight" from="interface/controls/brain" to="interface/controls/editor" method="debugger_highlight"]
+[connection signal="send" from="interface/controls/brain" to="interface/controls/editor" method="download"]
+[connection signal="vote" from="interface/controls/brain" to="." method="_election"]
+[connection signal="yielded" from="interface/controls/brain" to="." method="_on_brain_yielded"]
+[connection signal="timeout" from="timer" to="." method="_on_clock"]

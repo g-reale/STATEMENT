@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://t3fswwlxpik7"]
+
+[ext_resource type="Script" path="res://resources/border.gd" id="1_lou2p"]
+[ext_resource type="StyleBox" uid="uid://dnl8rhuh24jim" path="res://resources/border.tres" id="1_mtjpx"]
+
+[node name="border" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("1_mtjpx")
+script = ExtResource("1_lou2p")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxl3wgisgdq6u"]
+
+[ext_resource type="Script" path="res://end_screen/end_screen.gd" id="1_lfsda"]
+[ext_resource type="StyleBox" uid="uid://1f15bx8v3uc1" path="res://resources/background.tres" id="1_ujb6q"]
+[ext_resource type="FontFile" uid="uid://bei5vw5mhmwp7" path="res://resources/VT323-Regular.ttf" id="2_lfnwc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhse8"]
+line_spacing = 0.0
+font = ExtResource("2_lfnwc")
+font_size = 20
+
+[node name="end_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lfsda")
+
+[node name="brackground" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_ujb6q")
+
+[node name="byeeeee" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -190.0
+offset_right = 176.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+					       _          _                 _       
+					  ___ | |__  _ __(_) __ _  __ _  __| | ___  
+					 / _ \\| '_ \\| '__| |/ _` |/ _` |/ _` |/ _ \\ 
+					| (_) | |_) | |  | | (_| | (_| | (_| | (_) |
+					 \\___/|_.__/|_|  |_|\\__, |\\__,_|\\__,_|\\___/ 
+					                    |___/                   
+					                                            
+					 _ __   ___  _ __                           
+					| '_ \\ / _ \\| '__|                          
+					| |_) | (_) | |                             
+					| .__/ \\___/|_|                             
+					|_|                                         
+					   _                          __            
+					  (_) ___   __ _  __ _ _ __   \\ \\           
+					  | |/ _ \\ / _` |/ _` | '__| (_) |          
+					  | | (_) | (_| | (_| | |     _| |          
+					 _/ |\\___/ \\__, |\\__,_|_|    (_) |          
+					|__/       |___/              /_/           
+"
+label_settings = SubResource("LabelSettings_bhse8")
+vertical_alignment = 1

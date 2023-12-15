@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0rryyggjegpg"]
+
+[ext_resource type="Script" path="res://start_screen/start_screen.gd" id="1_hxpqh"]
+[ext_resource type="StyleBox" uid="uid://1f15bx8v3uc1" path="res://resources/background.tres" id="2_6dxms"]
+[ext_resource type="FontFile" uid="uid://bei5vw5mhmwp7" path="res://resources/VT323-Regular.ttf" id="3_va4kn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0vnch"]
+line_spacing = 0.0
+font = ExtResource("3_va4kn")
+
+[node name="start_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hxpqh")
+
+[node name="background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_6dxms")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = " __ _        _                            _   
+/ _\\ |_ __ _| |_ ___ _ __ ___   ___ _ __ | |_ 
+\\ \\| __/ _` | __/ _ \\ '_ ` _ \\ / _ \\ '_ \\| __|
+_\\ \\ || (_| | ||  __/ | | | | |  __/ | | | |_ 
+\\__/\\__\\__,_|\\__\\___|_| |_| |_|\\___|_| |_|\\__|
+                                              
+"
+label_settings = SubResource("LabelSettings_0vnch")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0

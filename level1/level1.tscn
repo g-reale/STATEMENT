@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://wcr7bkqu5xbo"]
+
+[ext_resource type="PackedScene" uid="uid://cw5w0v16ify6c" path="res://game/game.tscn" id="1_qp07u"]
+[ext_resource type="Script" path="res://level1/level1.gd" id="1_rri74"]
+
+[node name="level1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rri74")
+
+[node name="game" parent="." instance=ExtResource("1_qp07u")]
+layout_mode = 1

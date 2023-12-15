@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://okpwh5rv10fk"]
+
+[ext_resource type="Script" path="res://brain/brain.gd" id="1_o4d2a"]
+
+[node name="brain" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+focus_mode = 2
+script = ExtResource("1_o4d2a")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

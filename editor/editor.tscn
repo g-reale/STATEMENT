@@ -1,0 +1,177 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5gdmumu55s2q"]
+
+[ext_resource type="Script" path="res://editor/editor.gd" id="1_rkcem"]
+[ext_resource type="PackedScene" uid="uid://t3fswwlxpik7" path="res://resources/border.tscn" id="2_5jcib"]
+[ext_resource type="FontFile" uid="uid://bei5vw5mhmwp7" path="res://resources/VT323-Regular.ttf" id="2_v8dnn"]
+[ext_resource type="Script" path="res://editor/genericLineEdit.gd" id="3_pn78t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlf13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2k0i6"]
+
+[node name="Editor" type="Container"]
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_mode = 2
+script = ExtResource("1_rkcem")
+
+[node name="border" parent="." instance=ExtResource("2_5jcib")]
+layout_mode = 2
+
+[node name="controls" type="VBoxContainer" parent="border"]
+layout_mode = 2
+
+[node name="a" type="HBoxContainer" parent="border/controls"]
+layout_mode = 2
+
+[node name="aLabel" type="Label" parent="border/controls/a"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_v8dnn")
+theme_override_font_sizes/font_size = 20
+text = "a>"
+vertical_alignment = 2
+
+[node name="aLineEdit" type="LineEdit" parent="border/controls/a"]
+layout_mode = 2
+focus_next = NodePath("../../b/bLineEdit")
+focus_previous = NodePath(".")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_constants/minimum_character_width = 32
+theme_override_constants/outline_size = 0
+theme_override_constants/caret_width = 6
+theme_override_fonts/font = ExtResource("2_v8dnn")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dlf13")
+text = "eps"
+max_length = 32
+flat = true
+caret_blink = true
+caret_column = 3
+script = ExtResource("3_pn78t")
+
+[node name="b" type="HBoxContainer" parent="border/controls"]
+layout_mode = 2
+
+[node name="bLabel" type="Label" parent="border/controls/b"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_v8dnn")
+theme_override_font_sizes/font_size = 20
+text = "b>"
+vertical_alignment = 2
+
+[node name="bLineEdit" type="LineEdit" parent="border/controls/b"]
+layout_mode = 2
+focus_next = NodePath("../../c/cLineEdit")
+focus_previous = NodePath("../../a/aLineEdit")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_constants/minimum_character_width = 32
+theme_override_constants/outline_size = 0
+theme_override_constants/caret_width = 6
+theme_override_fonts/font = ExtResource("2_v8dnn")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2k0i6")
+text = "eps"
+max_length = 32
+flat = true
+caret_blink = true
+caret_column = 3
+script = ExtResource("3_pn78t")
+
+[node name="c" type="HBoxContainer" parent="border/controls"]
+layout_mode = 2
+
+[node name="cLabel" type="Label" parent="border/controls/c"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_v8dnn")
+theme_override_font_sizes/font_size = 20
+text = "c>"
+vertical_alignment = 2
+
+[node name="cLineEdit" type="LineEdit" parent="border/controls/c"]
+layout_mode = 2
+focus_next = NodePath("../../d/dLineEdit")
+focus_previous = NodePath("../../b/bLineEdit")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_constants/minimum_character_width = 32
+theme_override_constants/outline_size = 0
+theme_override_constants/caret_width = 6
+theme_override_fonts/font = ExtResource("2_v8dnn")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2k0i6")
+text = "eps"
+max_length = 32
+flat = true
+caret_blink = true
+caret_column = 3
+script = ExtResource("3_pn78t")
+
+[node name="d" type="HBoxContainer" parent="border/controls"]
+layout_mode = 2
+
+[node name="dLabel" type="Label" parent="border/controls/d"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_v8dnn")
+theme_override_font_sizes/font_size = 20
+text = "d>"
+vertical_alignment = 2
+
+[node name="dLineEdit" type="LineEdit" parent="border/controls/d"]
+layout_mode = 2
+focus_next = NodePath(".")
+focus_previous = NodePath("../../c/cLineEdit")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_constants/minimum_character_width = 32
+theme_override_constants/outline_size = 0
+theme_override_constants/caret_width = 6
+theme_override_fonts/font = ExtResource("2_v8dnn")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2k0i6")
+text = "eps"
+max_length = 32
+flat = true
+caret_blink = true
+caret_column = 3
+script = ExtResource("3_pn78t")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="changed" from="border/controls/a/aLineEdit" to="." method="_on_text_changed"]
+[connection signal="text_changed" from="border/controls/a/aLineEdit" to="border/controls/a/aLineEdit" method="_on_text_changed"]
+[connection signal="unfocused" from="border/controls/a/aLineEdit" to="." method="_on_inner_focus_exited"]
+[connection signal="changed" from="border/controls/b/bLineEdit" to="." method="_on_text_changed"]
+[connection signal="text_changed" from="border/controls/b/bLineEdit" to="border/controls/b/bLineEdit" method="_on_text_changed"]
+[connection signal="unfocused" from="border/controls/b/bLineEdit" to="." method="_on_inner_focus_exited"]
+[connection signal="changed" from="border/controls/c/cLineEdit" to="." method="_on_text_changed"]
+[connection signal="text_changed" from="border/controls/c/cLineEdit" to="border/controls/c/cLineEdit" method="_on_text_changed"]
+[connection signal="unfocused" from="border/controls/c/cLineEdit" to="." method="_on_inner_focus_exited"]
+[connection signal="changed" from="border/controls/d/dLineEdit" to="." method="_on_text_changed"]
+[connection signal="text_changed" from="border/controls/d/dLineEdit" to="border/controls/d/dLineEdit" method="_on_text_changed"]
+[connection signal="unfocused" from="border/controls/d/dLineEdit" to="." method="_on_inner_focus_exited"]
